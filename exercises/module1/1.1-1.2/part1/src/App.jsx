@@ -1,39 +1,6 @@
-const Header = ({ course }) => {
-  return (
-    <>
-      <h1>{course}</h1>
-    </>
-  )
-}
-
-const Part = ({part, amount}) => {
-  return (
-    <>
-      <p>
-        {part} {amount}
-      </p>
-    </>
-  )
-}
-
-const Content = ({ part1, exercises1, part2, exercises2, part3, exercises3 }) => {
-  return (
-    <>
-    <Part part={part1} amount={exercises1}></Part>
-    <Part part={part2} amount={exercises2}></Part>
-    <Part part={part3} amount={exercises3}></Part>
-
-    </>
-  )
-}
-
-const Footer = ({ amount }) => {
-  return (
-    <>
-      <p>Number of exercises {amount}</p>
-    </>
-  )
-}
+import Header from "../Header/Header"
+import Footer from "../Footer/Footer"
+import Content from "../Content/Content"
 
 const App = () => {
   const course = 'Half Stack application development'
