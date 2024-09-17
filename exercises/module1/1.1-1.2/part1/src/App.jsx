@@ -1,6 +1,7 @@
 import Header from "/Header/Header"
 import Footer from "/Footer/Footer"
 import Content from "/Content/Content"
+import './App.css'
 
 const App = () => {
   const course = 'Half Stack application development'
