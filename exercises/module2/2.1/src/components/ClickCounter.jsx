@@ -1,11 +1,17 @@
-const ClickCounter = ({count, setCount, title}) => {
+import { useState } from 'react';
+
+const ClickCounter = ({count, setCount, title, hoverMsg}) => {
+    const [isHovered, setIsHovered] = useState(false);
+
     return (
         <>
         <div className="card">
         <Title title={title}></Title>
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={() => setCount((count) => count + 1)} onMouseEnter= {() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
           count is {count}
         </button>
+        {isHovered && <HoverMessage message={hoverMsg} />}
+
         <PopUp count= {count}></PopUp>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
@@ -14,6 +20,15 @@ const ClickCounter = ({count, setCount, title}) => {
         </>
     )
 }
+
+const HoverMessage = ({ message }) => {
+    return (
+      <div style={{ position: 'absolute', backgroundColor: '#fff', border: '1px solid black', padding: '5px', borderRadius: '5px' }}>
+        {message}
+      </div>
+    );
+  };
+  
 
 const Title = ({title}) => {
     return (
