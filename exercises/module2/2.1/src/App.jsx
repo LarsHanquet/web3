@@ -1,12 +1,20 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import ClickCounter from './components/ClickCounter'
 
 function App() {
-  const [count, setCount] = useState(0)
+  
+  const [count, setCount] = useState(() => {
+    let savedCount = localStorage.getItem('count');
+    if (savedCount == undefined || isNaN(savedCount)) {
+      savedCount = 0;
+    }
+    return savedCount;
+  });
   const title = "TITRE"
+  console.log(parseInt(localStorage.getItem("count")))
 
   return (
     <>

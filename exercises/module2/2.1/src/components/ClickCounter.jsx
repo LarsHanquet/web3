@@ -7,7 +7,7 @@ const ClickCounter = ({count, setCount, title, hoverMsg}) => {
         <>
         <div className="card">
         <Title title={title}></Title>
-        <button onClick={() => setCount((count) => count + 1)} onMouseEnter= {() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+        <button onClick={() => {setCount(count + 1);localStorage.setItem("count", JSON.stringify(count+1))}} onMouseEnter= {() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
           count is {count}
         </button>
         {isHovered && <HoverMessage message={hoverMsg} />}
